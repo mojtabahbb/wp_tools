@@ -1,0 +1,26 @@
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# WordPress
+wp-*.php
+wp-config.php
+/wp-admin/
+/wp-content/
+/wp-includes/
+index.php
+license.txt
+readme.html
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Composer
+vendor/
+composer.lock
