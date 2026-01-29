@@ -1,28 +1,4 @@
 <?php defined('ABSPATH') || die;
-/**
- * RTL SpeedUp Iranian Host Wordpress Dashboard
- *
- * @author            mojtabahbb
- * @copyright         mojtabahbb
- * @license           mojtabahbb
- *
- * @wordpress-plugin
- *
- * Plugin Name:         افزایش سرعت هاست ایرانی
- * Plugin URI:          https://www.mojtabahbb.ir/
- * Description:         افزونه ای جهت افزایش سرعت داشبورد وردپرس در هاست‌های ایرانی
- * Version:             1.0.0
- * Requires at least:   5.0
- * Requires PHP:        7.2
- * Author:              mojtabahbb
- * Author URI:          https://www.mojtabahbb.ir/
- * License:             GNU
- * License URI:         https://www.mojtabahbb.ir/
- * Text Domain:         mojtabahbb
- * Domain Path:         /languages
- */
-
-
 
 function rtlTextHasString($text, $string) {
 	return strpos($text, $string) !== false;

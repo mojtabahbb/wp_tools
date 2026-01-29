@@ -1,38 +1,5 @@
-<?php
+<?php defined('ABSPATH') || die;
  
-/**
- * Microbite WebP Converter 
- * 
- * Automatically converts uploaded images (JPEG, PNG, GIF, HEIC) to optimized WebP format.
- * This snippet is perfect for handling large image uploads - it intelligently resizes images
- * to your specified dimensions and converts them to WebP for maximum compression while
- * maintaining quality. Original files are replaced with optimized versions to save server space.
- * 
- * Features:
- * - Automatic WebP conversion with size comparison (only converts if WebP is smaller)
- * - Configurable max width/height with aspect ratio preservation  
- * - Adjustable compression quality (1-100)
- * - EXIF orientation correction (fixes rotated images)
- * - Replaces originals with optimized files (saves storage space)
- * - Admin settings panel in Media options
- * - Smart fallback (keeps original if WebP conversion fails or is larger)
- * 
- * Requirements: 
- * - WordPress 5.0+
- * - PHP Imagick extension (will show admin notice if missing)
- * 
- * Installation Options:
- * 1. Add to your theme's functions.php file
- * 2. Save as a must-use plugin (wp-content/mu-plugins/webp-converter.php)
- * 3. Use with code snippet plugins (WPCode, Code Snippets, Fluent Snippets, etc.)
- * 4. Add to your child theme's functions.php for theme updates safety
- * 
- * For a more professional solution with advanced features and support,
- * check out Microbite Image Converter: https://www.imageconverter.com.au/
- *
- * @version 1.03
- * @author Microbite (info@microbite.com.au)
- */
 
 function mbwpc_admin_enqueue_styles() {
     wp_enqueue_style('mbwpc-admin-styles', plugin_dir_url(__FILE__) . 'css/mbwpc-styles.css', array(), '1.0.0', 'all');
