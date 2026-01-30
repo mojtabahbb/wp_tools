@@ -29,7 +29,7 @@ function wp_tools_text_has_string( $text, $string ) {
  * @return bool|array Blocked response or original false.
  */
 function wp_tools_block_external_host_requests( $false, $parsed_args, $url ) {
-	$blocked_hosts = array(
+	$default_blocked_hosts = array(
 		'elementor.com',
 		'github.com',
 		'yoast.com',
@@ -39,6 +39,8 @@ function wp_tools_block_external_host_requests( $false, $parsed_args, $url ) {
 		'woocommerce.ir',
 		'woocommerce.com',
 	);
+
+	$blocked_hosts = get_option( 'wp_tools_blocked_hosts', $default_blocked_hosts );
 
 	foreach ( $blocked_hosts as $host ) {
 		if ( ! empty( $host ) && wp_tools_text_has_string( $url, $host ) ) {
