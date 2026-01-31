@@ -33,24 +33,32 @@ function wp_tools_add_admin_menu() {
         'wp_tools_admin_settings_page'
     );
 
+    // Get enabled modules
+    $modules = wp_tools_get_modules_list();
+    $saved   = get_option( 'wp_tools_modules', array() );
+
     // Submenu: Image Tool (link directly to Media settings)
-    add_submenu_page(
-        'wp-tools',
-        __( 'Image Tool', 'wp-tools' ),
-        __( 'Image Tool', 'wp-tools' ),
-        $capability,
-        'options-media.php'
-    );
+    if ( isset( $modules['image-tool'] ) && ( empty( $saved ) || ( isset( $saved['image-tool'] ) && $saved['image-tool'] ) ) ) {
+        add_submenu_page(
+            'wp-tools',
+            __( 'Image Tool', 'wp-tools' ),
+            __( 'Image Tool', 'wp-tools' ),
+            $capability,
+            'options-media.php'
+        );
+    }
 
     // Submenu: Iran Host Speedup
-    add_submenu_page(
-        'wp-tools',
-        __( 'Iran Host Speedup', 'wp-tools' ),
-        __( 'Iran Host Speedup', 'wp-tools' ),
-        $capability,
-        'wp-tools-iran-host-speedup',
-        'wp_tools_admin_iran_host_page'
-    );
+    if ( isset( $modules['iran-host-speedup'] ) && ( empty( $saved ) || ( isset( $saved['iran-host-speedup'] ) && $saved['iran-host-speedup'] ) ) ) {
+        add_submenu_page(
+            'wp-tools',
+            __( 'Iran Host Speedup', 'wp-tools' ),
+            __( 'Iran Host Speedup', 'wp-tools' ),
+            $capability,
+            'wp-tools-iran-host-speedup',
+            'wp_tools_admin_iran_host_page'
+        );
+    }
 }
 
 function wp_tools_admin_dashboard() {
